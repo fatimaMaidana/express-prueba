@@ -1,7 +1,7 @@
 const RepositorioUsuarios = require('../repositorios/users.repository')
 
 const Servicio = {
-    getResponse,
+    getAllUsers,
     getOneUser
 };
 
@@ -9,7 +9,7 @@ function getOneUser(id) {
     return RepositorioUsuarios.getUser(id);
 };
 
-function getResponse() {
+function getAllUsers() {
     return RepositorioUsuarios.getAllUsers();
 };
 
