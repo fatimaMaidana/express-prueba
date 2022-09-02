@@ -19,4 +19,9 @@ router.post('/product', function (req, res) {
     res.send(response);
 });
 
+router.delete('/product/:id', function (req, res) {
+    const response = productService.deleteProduct(req.params.id)
+    res.send(response);
+});
+
 module.exports = router;

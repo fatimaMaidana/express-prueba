@@ -3,7 +3,8 @@ const RepositorioProductos = require('../repositorios/products.repository')
 const Servicio = {
     getAllProducts,
     getOneProduct,
-    addProduct
+    addProduct,
+    deleteProduct
 };
 
 function getOneProduct(id) {
@@ -16,6 +17,10 @@ function getAllProducts() {
 
 function addProduct(id, nombre) {
     return RepositorioProductos.addProduct(id, nombre)
+};
+
+function deleteProduct(id) {
+    return RepositorioProductos.deleteProduct(id)
 }
 
 module.exports = Servicio;

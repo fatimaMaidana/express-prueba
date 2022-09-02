@@ -1,4 +1,4 @@
-const products = [
+var products = [
     {
         id: 1,
         nombre: "Olla Essen"
@@ -18,13 +18,20 @@ function getProduct(id) {
 }
 
 function addProduct(id, nombre) {
-    products.push(id, nombre)
+    products.push({ id, nombre })
+    return products
+}
+
+function deleteProduct(id) {
+    products = products.filter(product => product.id != id)
+    return products
 }
 
 const RepositorioProductos = {
     getAllProducts,
     getProduct,
-    addProduct
+    addProduct,
+    deleteProduct
 }
 
 module.exports = RepositorioProductos
