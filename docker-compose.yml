@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+  db:
+    image: mysql
+    ports: 
+      - 3307:3306
+    container_name: martin
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: cosas

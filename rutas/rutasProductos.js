@@ -13,9 +13,8 @@ router.get('/product/:id', function (req, res) {
 });
 
 router.post('/product', function (req, res) {
-    let id = req.body.id;
     let nombre = req.body.nombre;
-    const response = productService.addProduct(id, nombre)
+    const response = productService.addProduct(nombre)
     res.send(response);
 });
 

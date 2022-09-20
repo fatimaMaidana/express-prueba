@@ -15,8 +15,8 @@ function getAllProducts() {
     return RepositorioProductos.getAllProducts();
 };
 
-function addProduct(id, nombre) {
-    return RepositorioProductos.addProduct(id, nombre)
+function addProduct(nombre) {
+    return RepositorioProductos.addProduct(nombre)
 };
 
 function deleteProduct(id) {
