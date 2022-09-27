@@ -1,20 +1,22 @@
-const users = [
-    {
-        id: 1,
-        nombre: "Martin"
-    },
-    {
-        id: 2,
-        nombre: "Fatima"
+const knex = require('knex');
+const database = knex({
+    client: 'mysql2',
+    connection: {
+        host: '127.0.0.1',
+        port: 3307,
+        user: 'root',
+        password: 'my-secret-pw',
+        database: 'cosas'
     }
-]
+});
 
 function getAllUsers() {
-    return users
+    return database('users')
 }
 
 function getUser(id) {
-    return users.find(user => id == user.id)
+    return database('users')
+        .where("id", id)
 }
 
 const RepositorioUsuarios = {

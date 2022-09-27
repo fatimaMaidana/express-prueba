@@ -10,38 +10,30 @@ const database = knex({
     }
 });
 
-var products = [
-    {
-        id: 1,
-        nombre: "Olla Essen"
-    },
-    {
-        id: 2,
-        nombre: "Espatula Madera"
-    }
-]
 
 function getAllProducts() {
-    return products
+    return database('products')
+
 }
 
 function getProduct(id) {
-    return products.find(product => id == product.id)
+    return database('products')
+        .where('id', id)
+
 }
 
-function addProduct(nombre) {
-    database('products').insert({ nombre: nombre })
-        .then()
-
-    return products
+async function addProduct(nombre) {
+    const unId = await database('products').insert({ nombre: nombre })
+    const id = unId[0]
+    return getProduct(id)
 }
 
 function deleteProduct(id) {
-    database('products')
+    return database('products')
         .where('id', id)
         .del()
-        .then()
-    return products
+
+
 }
 
 const RepositorioProductos = {
